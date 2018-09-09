@@ -50,7 +50,7 @@ passport.use(new LocalStrategy(//자체 인증 전략
       return hasher({password:pwd, salt:user.salt}, function(err, pass, salt,hash){
        if(pwd === user.password)
        {
-         done(null, user); //serializeUser가 호출된다
+         done(null, user); //serializeUser가 호출된다 또한 req의 하위로 user가 들어가며 req.user를 사용할수 있게된다.
        }
        else{
          done(null, false);  //false 면
@@ -66,4 +66,7 @@ router.post('/',
   function(req, res){
     res.redirect('/');
   });
+router.get('/', function(req, res, next){
+  res.render('login');
+})
 module.exports = router;

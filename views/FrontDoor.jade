@@ -5,6 +5,14 @@ head
   link(rel="stylesheet" href="/stylesheets/FrontDoorStyle.css")
   body
     ul
+      if isauthed == 'false'
+        li
+          a(class="active" href="/login") login
+      else
+        li
+          a(class="active" href="/logout") logout
+        li
+          a(class="active" href="#MyPage") MyPage
       li
         a(class="active" href="#home") home
       li
@@ -15,35 +23,4 @@ head
         a(href="#about") About
     h1(class="title")= title
 
-    fieldset(align="center")
-      legend Sign In or Sign Up
-      form(action="/login" method="post" style="display:inline-block; margin:15px;")
-        p
-          label User ID
-        p
-          input(type="text" name="username")
-        p
-          label Password
-        p
-          input(type="password" name="password")
-        p
-          input(type="submit" value="Sign In")
-      form(action="/register" method="post" style="display:inline-block;margin:15px;")
-        p
-          label User ID
-        p
-          input(type="text" name="username" placeholder="Not null")
-        p
-          label Password
-        p
-          input(type="password" name="password" placeholder="More than 6 character")
-        p
-          label Nick Name
-        p
-          input(type="text" name="nickname" placeholder="Not null")
-        p
-          label E-mail
-        p
-          input(type="text" name="Email" placeholder="Not null")
-        p
-          input(type="submit" value="Sign Up")
+    block loginForm
