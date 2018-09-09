@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 var ConnectMysql = mysql.createConnection({
   host : 'localhost',
   user : 'root',
-  password : '',//'1q2w3e!23',
+  password : '1q2w3e!23',//'1q2w3e!23',
   database : 'o2'
 });
 ConnectMysql.connect();
@@ -31,12 +31,15 @@ router.post('/', function(req, res, next) {
     };
     var sql = "INSERT INTO users SET ?";
     ConnectMysql.query(sql, user, function(err, results){
+      var success;
+      var message;
+      var obj = {};
       if(err){
         console.log(err);
         res.status(500);
       }
       else{
-        res.send('회원가입 되었습니다. 로그인해주세요');
+        res.redirect('/login');
       }
     })
   });

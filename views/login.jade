@@ -31,4 +31,6 @@ block loginForm
       p
         input(type="text" name="Email" placeholder="Not null")
       p
-        input(type="submit" value="Sign Up")
+        input(type="submit" value="Sign Up" onclick="RegisterSuccess()")
+      if success == 'succeed'
+        = message

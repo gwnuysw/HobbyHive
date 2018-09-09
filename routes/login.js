@@ -13,7 +13,7 @@ var router = express.Router();
 var ConnectMysql = mysql.createConnection({
   host : 'localhost',
   user : 'root',
-  password : '',//'1q2w3e!23',
+  password : '1q2w3e!23',//'1q2w3e!23',
   database : 'o2'
 });
 ConnectMysql.connect();
@@ -48,7 +48,9 @@ passport.use(new LocalStrategy(//자체 인증 전략
         return done('There is no user');
       }
       return hasher({password:pwd, salt:user.salt}, function(err, pass, salt,hash){
-       if(pwd === user.password)
+        console.log(hash);
+        console.log(user.password);
+       if(hash === user.password)
        {
          done(null, user); //serializeUser가 호출된다 또한 req의 하위로 user가 들어가며 req.user를 사용할수 있게된다.
        }
