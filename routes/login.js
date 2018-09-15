@@ -69,6 +69,13 @@ router.post('/',
     res.redirect('/');
   });
 router.get('/', function(req, res, next){
-  res.render('login');
+  var isauthed;
+  if(req.isAuthenticated()){
+    isauthed = 'true';
+  }
+  else{
+    isauthed = 'false';
+  }
+  res.render('login',{isauthed:isauthed});
 })
 module.exports = router;

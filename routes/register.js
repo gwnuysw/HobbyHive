@@ -18,7 +18,6 @@ var ConnectMysql = mysql.createConnection({
   database : 'o2'
 });
 ConnectMysql.connect();
-
 /* POST users register information */
 router.post('/', function(req, res, next) {
   hasher({password:req.body.password}, function(err, pass, salt, hash){
@@ -39,9 +38,19 @@ router.post('/', function(req, res, next) {
         res.status(500);
       }
       else{
-        res.redirect('/login');
+        res.redirect('/');
       }
     })
   });
 });
+router.get('/', function(req, res, next){
+  var isauthed;
+  if(req.isAuthenticated()){
+    isauthed = 'true';
+  }
+  else{
+    isauthed = 'false';
+  }
+  res.render('register',{isauthed:isauthed});
+})
 module.exports = router;

@@ -1,7 +1,7 @@
 extends ./FrontDoor
 block loginForm
   fieldset(align="center")
-    legend Sign In or Sign Up
+    legend Sign In
     form(action="/login" method="post" style="display:inline-block; margin:15px;")
       p
         label User ID
@@ -13,24 +13,3 @@ block loginForm
         input(type="password" name="password")
       p
         input(type="submit" value="Sign In")
-    form(action="/register" method="post" style="display:inline-block;margin:15px;")
-      p
-        label User ID
-      p
-        input(type="text" name="username" placeholder="Not null")
-      p
-        label Password
-      p
-        input(type="password" name="password" placeholder="More than 6 character")
-      p
-        label Nick Name
-      p
-        input(type="text" name="nickname" placeholder="Not null")
-      p
-        label E-mail
-      p
-        input(type="text" name="Email" placeholder="Not null")
-      p
-        input(type="submit" value="Sign Up" onclick="RegisterSuccess()")
-      if success == 'succeed'
-        = message

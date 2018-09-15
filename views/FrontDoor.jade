@@ -7,14 +7,16 @@ head
     ul
       if isauthed == 'false'
         li
-          a(class="active" href="/login") login
+          a(class="active" href="/login") SignIn
+        li
+          a(class="active" href="/register") SignUp
       else
         li
           a(class="active" href="/logout") logout
         li
           a(class="active" href="#MyPage") MyPage
       li
-        a(class="active" href="#home") home
+        a(class="active" href="/") home
       li
         a(href="#news") News
       li
