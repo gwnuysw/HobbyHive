@@ -43,7 +43,9 @@ npm install
      FOREIGN KEY(account_id) REFERENCES users (id))
      ENGINE=InnoDB DEFAULT CHARSET=utf8;
   ```
+
 4. hobbyhive의 웹서비스를 개인의 로컬 컴퓨터에서 테스트 하기 위해서 mysql설정을 각 개인 컴퓨터 설정에 맞춰서 수정해야합니다.
+
 ### app.js
 ```
 app.use(session({

@@ -56,3 +56,12 @@ article {
     flex: 3;
     padding: 10px;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: AUTO AUTO AUTO;
+}
+.wrapper a{
+  padding : 20px;
+  text-align: center;
+}

@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
     isauthed = 'false';
   }
   console.log(isauthed);
-  res.render('FrontDoor', { title: 'HobbyHive', isauthed: isauthed });
+  res.render('FirstCategory', { title: 'HobbyHive', isauthed: isauthed });
 });
 
 module.exports = router;
