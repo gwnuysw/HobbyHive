@@ -38,7 +38,7 @@ router.post('/', function(req, res, next) {
         res.status(500);
       }
       else{
-        res.redirect('/');
+        res.redirect('/login');
       }
     })
   });

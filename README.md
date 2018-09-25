@@ -14,20 +14,35 @@ git clone https://github.com/gwnuysw/HobbyHive.git
 npm install
 ```
 
-3. 유저 정보 mysql db 스키마
-```
-CREATE TABLE users (
-    id INT NOT NULL AUTO_INCREMENT ,
-    authId VARCHAR(50) NOT NULL ,
-    username VARCHAR(30),
-    password VARCHAR(255),
-    salt VARCHAR(255),
-    displayName VARCHAR(50),
-    email VARCHAR(50) NOT NULL ,
-    PRIMARY KEY (id),
-    UNIQUE (authId)
-) ENGINE = InnoDB;
-```
+3. DB Schema
+
+  **유저정보**
+  ```
+  CREATE TABLE users (
+      id INT NOT NULL AUTO_INCREMENT ,
+      authId VARCHAR(50) NOT NULL ,
+      username VARCHAR(30),
+      password VARCHAR(255),
+      salt VARCHAR(255),
+      displayName VARCHAR(50),
+      email VARCHAR(50) NOT NULL ,
+      PRIMARY KEY (id),
+      UNIQUE (authId)
+  ) ENGINE = InnoDB;
+  ```
+
+  **대문 FirstCategory**
+  ```
+  CREATE TABLE FirstCategory
+     (id INT NOT NULL AUTO_INCREMENT,
+     views INT NOT NULL,
+     account_id INT NOT NULL,
+     created TIMESTAMP DEFAULT NOW(),
+     PRIMARY KEY(id),
+     UNIQUE(id),
+     FOREIGN KEY(account_id) REFERENCES users (id))
+     ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  ```
 4. hobbyhive의 웹서비스를 개인의 로컬 컴퓨터에서 테스트 하기 위해서 mysql설정을 각 개인 컴퓨터 설정에 맞춰서 수정해야합니다.
 ### app.js
 ```

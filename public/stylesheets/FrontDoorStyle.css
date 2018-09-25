@@ -27,3 +27,32 @@ body {
 .title{
   text-align: center;
 }
+section {
+    display: -webkit-flex;
+    display: flex;
+}
+nav {
+    height: 100%;
+    z-index: 1;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+}
+
+nav a {
+    padding: 6px 32px 6px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+}
+
+nav a:hover {
+    color: #f1f1f1;
+}
+article {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    padding: 10px;
+}

@@ -3,26 +3,28 @@ html
 head
   title HobbyHive
   link(rel="stylesheet" href="/stylesheets/FrontDoorStyle.css")
+  link(rel="stylesheet" href="/stylesheets/MyProfile.css")
   body
-    ul
-      if isauthed == 'false'
+    header
+      ul
+        if isauthed == 'false'
+          li
+            a(class="active" href="/login") SignIn
+          li
+            a(class="active" href="/register") SignUp
+        else
+          li
+            a(class="active" href="/logout") logout
+          li
+            a(class="active" href="/MyProfile") MyProfile
         li
-          a(class="active" href="/login") SignIn
+          a(class="active" href="/") home
         li
-          a(class="active" href="/register") SignUp
-      else
+          a(href="#news") News
         li
-          a(class="active" href="/logout") logout
+          a(href="#Contact") Contact
         li
-          a(class="active" href="#MyPage") MyPage
-      li
-        a(class="active" href="/") home
-      li
-        a(href="#news") News
-      li
-        a(href="#Contact") Contact
-      li
-        a(href="#about") About
-    h1(class="title")= title
+          a(href="#about") About
+      h1(class="title")= title
 
-    block loginForm
+    block MainCategory

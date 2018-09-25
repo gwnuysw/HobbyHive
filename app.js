@@ -8,7 +8,7 @@ var homeRouter = require('./routes/home');
 var MySqlStore = require('express-mysql-session')(session);
 var passport = require('passport');
 
-
+var MyProfile = require('./routes/MyProfile');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
@@ -46,6 +46,7 @@ app.use('/', homeRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/logout', logoutRouter);
+app.use('/MyProfile', MyProfile);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

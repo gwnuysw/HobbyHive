@@ -1,0 +1,16 @@
+extends ./Myprofile
+block DeleteAccount
+  article
+    fieldset(align="center")
+      legend DeleteAccount
+      form(action="/Myprofile/DeleteAccount" method="post" style="display:inline-block; margin:15px;")
+        p
+          label User ID
+        p
+          input(type="text" name="username")
+        p
+          label Password
+        p
+          input(type="password" name="password")
+        p
+          input(type="submit" value="Delete")

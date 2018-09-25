@@ -45,7 +45,11 @@ passport.use(new LocalStrategy(//자체 인증 전략
       var user = results[0];
       console.log(user);
       if(err){
-        return done('There is no user');
+        return done(err);
+      }
+      /*가입한 유저가 아닐경우 서버가 아예 멈추진 않지만 더 나은 메시지를 화면에 띄울 필요가 있다.*/
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
       }
       return hasher({password:pwd, salt:user.salt}, function(err, pass, salt,hash){
         console.log(hash);
@@ -62,12 +66,18 @@ passport.use(new LocalStrategy(//자체 인증 전략
   }
 ));
 
-/* POST users Login information */
+/* POST users Login information*/
 router.post('/',
   passport.authenticate('local'),
   function(req, res){
     res.redirect('/');
   });
+  /*
+router.post('/', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/', // see text
+  failureFlash: true // optional, see text as well
+}));*/
 router.get('/', function(req, res, next){
   var isauthed;
   if(req.isAuthenticated()){
@@ -77,5 +87,5 @@ router.get('/', function(req, res, next){
     isauthed = 'false';
   }
   res.render('login',{isauthed:isauthed});
-})
+});
 module.exports = router;
