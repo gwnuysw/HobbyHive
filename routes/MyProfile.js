@@ -27,13 +27,9 @@ router.get('/', function(req, res, next){
 
 router.get('/DeleteAccount', function(req, res, next){
   var isauthed;
-  if(req.isAuthenticated()){
-    isauthed = 'true';
-  }
-  else{
-    isauthed = 'false';
-  }
-  res.render('DeleteAccount',{isauthed:isauthed});
+  var PageVar = {title : 'HobbyHive'};
+  PageVar.isauthed = req.isAuthenticated();
+  res.render('DeleteAccount',PageVar);
 });
 
 

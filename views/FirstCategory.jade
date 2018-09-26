@@ -1,7 +1,6 @@
 extends ./FrontDoor
 block MainCategory
   div(class="wrapper")
-    a(href="One") One
-    a(href="Tow") Two
-    a(href="Three") Three
-    a(href="Four") four
+    for items in FirstCategory
+      a= items
+    a(href="One") New Category

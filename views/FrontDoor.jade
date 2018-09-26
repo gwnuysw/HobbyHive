@@ -7,7 +7,7 @@ head
   body
     header
       ul
-        if isauthed == 'false'
+        if isauthed == false
           li
             a(class="active" href="/login") SignIn
           li
@@ -16,7 +16,7 @@ head
           li
             a(class="active" href="/logout") logout
           li
-            a(class="active" href="/MyProfile") MyProfile
+            a(class="active" href="/MyProfile") MyPage
         li
           a(class="active" href="/") home
         li
